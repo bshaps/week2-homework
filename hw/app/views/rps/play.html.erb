@@ -1,0 +1,10 @@
+<% if (@weapon == nil) %>
+	<h1>Pick a Weapon</h1>
+<% end %>
+<a href="/rps?weapon=rock"><img src="rock.png" alt="Rock"/></a>
+<a href="/rps?weapon=scissors"><img src="scissors.png" alt="Scissors"/></a>
+<a href="/rps?weapon=paper"><img src="paper.png" alt="Paper"/></a></br>
+<% if (@weapon != nil) %>
+	<h3>You selected <%= @weapon %>. Computer selected <%= @cpu_weapon %>. <%= @result %></h3></br> 
+	<a href="/rps">Play Again</a>
+<% end %>
