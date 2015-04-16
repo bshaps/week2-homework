@@ -1,0 +1,27 @@
+<h1>Dice Game</h1>
+<img src="/<%= @roll1 %>.png"/>
+<img src="/<%= @roll2 %>.png"/>
+<% if (@roll != nil) %>
+	</br>
+	<% if (@goal.to_s == @new_roll.to_s) %>
+		<h2>You Win!!!</h2>
+		<a href="/dice/"><button>Play Again</button></a>
+	<% elsif (@new_roll == 7) %>
+		<h2>You Lose :(</h2>
+		<a href="/dice/"><button>Play Again</button></a>
+	<% else %>
+		<h2>Your goal is <%= @goal %>, you rolled <%= @new_roll %>.</br>
+		<a href="/dice/roll?goal=<%= @goal %>"><button>Roll Again</button></a>
+	<% end %>
+<% else %>	
+	<% if (@goal == 2 || @goal == 3 || @goal == 12) %>
+		<h2>You Lose :(</h2>
+		<a href="/dice/"><button>Play Again</button></a>
+	<% elsif (@goal == 7 || @goal == 11) %>
+		<h2>You Win!!!</h2>
+		<a href="/dice/"><button>Play Again</button></a>
+	<% else %>
+		<h2>Your goal is <%= @goal %></h2>
+		<a href="/dice/roll?goal=<%= @goal %>"><button>Roll Again</button></a>
+	<% end %>
+<% end %>
